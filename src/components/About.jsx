@@ -1,72 +1,121 @@
 import React from 'react';
-import { User, GraduationCap, MapPin, Calendar, Award } from 'lucide-react';
+import { User, GraduationCap, MapPin, Calendar, Trophy, Code2 } from 'lucide-react';
 import { personal } from '../data';
 
 const stats = [
-  { label: 'Certificates', value: '21+' },
-  { label: 'Technologies', value: '10+' },
-  { label: 'Sports', value: '5+' },
-  { label: 'Projects', value: '3+' },
+  { label: 'Certificates', value: '21+', icon: '🏅' },
+  { label: 'Technologies', value: '10+', icon: '💻' },
+  { label: 'Sports',       value: '5+',  icon: '🏃' },
+  { label: 'Projects',     value: '3+',  icon: '🚀' },
+];
+
+const timeline = [
+  { year: '2021', title: 'SSC — 92%',   sub: 'BSVS Vidyalayam, Nellore',         icon: '🏫' },
+  { year: '2023', title: 'BIE-MPC — 90.4%', sub: 'MJPAPBCWRIES JR College, Tirupathi', icon: '📚' },
+  { year: '2023–27', title: 'B.Tech — AI & DS (75.6%)', sub: 'NBKRIST, Nellore',  icon: '🎓' },
 ];
 
 export default function About() {
   return (
-    <section id="about" className="py-20 px-4">
-      <div className="max-w-6xl mx-auto">
+    <section id="about" className="min-h-screen flex items-center py-20 px-5">
+      <div className="max-w-6xl mx-auto w-full">
+
+        {/* Header */}
         <div className="text-center mb-16">
-          <p className="text-primary font-mono text-sm mb-2">// who am I</p>
-          <h2 className="text-4xl font-bold">About <span className="gradient-text">Me</span></h2>
+          <p className="section-label">// who am I</p>
+          <h2 className="text-4xl sm:text-5xl font-extrabold">
+            About <span className="gradient-text">Me</span>
+          </h2>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* avatar */}
-          <div className="flex justify-center">
-            <div className="relative">
-              <div className="w-64 h-64 rounded-2xl bg-gradient-to-br from-primary to-secondary p-1 glow">
-                <div className="w-full h-full rounded-2xl bg-card flex items-center justify-center flex-col gap-2">
-                  <div className="text-6xl">👨‍💻</div>
-                  <p className="text-slate-400 text-sm font-mono">avula.chandu</p>
-                </div>
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
+          {/* Left — bio + stats */}
+          <div>
+            {/* Avatar card */}
+            <div className="glass p-6 mb-6 flex items-center gap-5">
+              <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary to-gold flex items-center justify-center text-4xl flex-shrink-0">
+                👨‍💻
               </div>
-              <div className="absolute -bottom-4 -right-4 glass px-4 py-2 flex items-center gap-2">
-                <Award className="w-4 h-4 text-yellow-400" />
-                <span className="text-xs text-slate-300">MERN Certified</span>
+              <div>
+                <h3 className="text-xl font-bold text-white">{personal.name}</h3>
+                <p className="text-primary text-sm font-mono">{personal.subtitle}</p>
+                <p className="text-slate-500 text-xs mt-1">{personal.college}</p>
               </div>
             </div>
-          </div>
 
-          {/* info */}
-          <div>
-            <h3 className="text-2xl font-bold mb-4">
-              Full Stack Developer · <span className="text-primary">Andhra Pradesh</span>
-            </h3>
-            <p className="text-slate-400 mb-6 leading-relaxed">
-              I'm a B.Tech student (AI & Data Science) at NBKRIST, Nellore. Passionate about the MERN stack,
-              I build clean and performant web applications. Beyond coding, I'm an active sports player —
-              representing my college at JNTUA South Zone tournaments in both Table Tennis and Kho-Kho.
+            <p className="text-slate-400 leading-relaxed mb-6">
+              I'm a B.Tech student specialising in AI & Data Science at NBKRIST, Nellore.
+              Passionate about the MERN stack, I love building clean, performant web applications.
+              Beyond coding, I'm an active sports player — representing my college at JNTUA
+              South Zone tournaments in both Table Tennis and Kho-Kho.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+            {/* Personal info */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
               {[
-                { icon: <User className="w-4 h-4 text-primary" />, text: personal.name },
-                { icon: <MapPin className="w-4 h-4 text-primary" />, text: personal.location },
-                { icon: <Calendar className="w-4 h-4 text-primary" />, text: `DOB: ${personal.dob}` },
-                { icon: <GraduationCap className="w-4 h-4 text-primary" />, text: personal.branch },
+                { icon: <User className="w-4 h-4" />,          text: personal.name },
+                { icon: <MapPin className="w-4 h-4" />,        text: personal.location },
+                { icon: <Calendar className="w-4 h-4" />,      text: `DOB: ${personal.dob}` },
+                { icon: <GraduationCap className="w-4 h-4" />, text: personal.branch },
               ].map(({ icon, text }) => (
-                <div key={text} className="flex items-center gap-3 text-slate-400">
-                  {icon}
-                  <span className="text-sm">{text}</span>
+                <div key={text} className="flex items-center gap-3 text-slate-400 text-sm">
+                  <span className="text-primary">{icon}</span>
+                  {text}
                 </div>
               ))}
             </div>
 
-            <div className="grid grid-cols-4 gap-4">
+            {/* Stats */}
+            <div className="grid grid-cols-4 gap-3">
               {stats.map((s) => (
                 <div key={s.label} className="glass p-3 text-center glow-hover">
-                  <p className="text-2xl font-bold gradient-text">{s.value}</p>
+                  <div className="text-2xl mb-1">{s.icon}</div>
+                  <p className="text-xl font-extrabold gradient-text">{s.value}</p>
                   <p className="text-xs text-slate-500 mt-1">{s.label}</p>
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* Right — education timeline */}
+          <div>
+            <h3 className="text-xl font-bold mb-6 text-white">
+              <GraduationCap className="inline w-5 h-5 text-primary mr-2" />
+              Education Timeline
+            </h3>
+            <div className="relative">
+              {/* vertical line */}
+              <div className="absolute left-5 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-primary/30 to-transparent" />
+
+              <div className="space-y-6">
+                {timeline.map((item, i) => (
+                  <div key={i} className="relative pl-14">
+                    {/* dot */}
+                    <div className="absolute left-3 top-4 w-4 h-4 rounded-full bg-primary border-2 border-dark glow" />
+                    <div className="glass p-5 glow-hover">
+                      <span className="text-xs font-mono text-primary mb-1 block">{item.year}</span>
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="text-lg">{item.icon}</span>
+                        <h4 className="font-bold text-white text-sm">{item.title}</h4>
+                      </div>
+                      <p className="text-slate-500 text-xs">{item.sub}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Hobbies */}
+            <div className="mt-8 glass p-5">
+              <h4 className="font-bold text-white mb-3 text-sm">Hobbies & Interests</h4>
+              <div className="flex flex-wrap gap-2">
+                {['Learning new tech', 'Reading tech blogs', 'Deep research', 'Table Tennis', 'Kho-Kho', 'Softball'].map((h) => (
+                  <span key={h}
+                    className="px-3 py-1 text-xs rounded-full border border-primary/25 bg-primary/8 text-primary">
+                    {h}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </div>
