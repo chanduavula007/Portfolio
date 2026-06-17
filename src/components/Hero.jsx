@@ -3,9 +3,9 @@ import { Github, Linkedin, Mail, ArrowDown, Sparkles } from 'lucide-react';
 import { personal } from '../data';
 
 const roles = [
-  'Full Stack Developer',
+  'Junior Web Developer',
   'MERN Stack Developer',
-  'React.js Developer',
+  'Python Developer',
   'AI & DS Student',
 ];
 
@@ -74,9 +74,10 @@ export default function Hero() {
         </div>
 
         <p className="text-slate-400 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-          B.Tech student at NBKRIST passionate about building modern web applications.
-          Certified MERN Full Stack Developer with hands-on experience in React,
-          Node.js, MongoDB and Power BI.
+          B.Tech student in AI & Data Science at NBKRIST with hands-on experience
+          in Python and core web technologies. Certified MERN Stack Developer with
+          a solid understanding of software lifecycles through Git & GitHub,
+          looking to build high-performance, user-centric applications.
         </p>
 
         {/* CTAs */}

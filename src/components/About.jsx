@@ -10,9 +10,9 @@ const stats = [
 ];
 
 const timeline = [
-  { year: '2021', title: 'SSC — 92%',   sub: 'BSVS Vidyalayam, Nellore',         icon: '🏫' },
-  { year: '2023', title: 'BIE-MPC — 90.4%', sub: 'MJPAPBCWRIES JR College, Tirupathi', icon: '📚' },
-  { year: '2023–27', title: 'B.Tech — AI & DS (75.6%)', sub: 'NBKRIST, Nellore',  icon: '🎓' },
+  { year: '2019', title: 'SSC — 9.2 CGPA',   sub: 'AP Bala Yogi Gurukulam, Chillakur',  icon: '🏫' },
+  { year: '2021–23', title: 'BIE-MPC — 944 Marks', sub: 'SR Junior College, Nellore', icon: '📚' },
+  { year: '2023–27', title: 'B.Tech — AI & DS (8.06 CGPA)', sub: 'NBKR Institute of Technology, Vidyanagar',  icon: '🎓' },
 ];
 
 export default function About() {
@@ -44,10 +44,12 @@ export default function About() {
             </div>
 
             <p className="text-slate-400 leading-relaxed mb-6">
-              I'm a B.Tech student specialising in AI & Data Science at NBKRIST, Nellore.
-              Passionate about the MERN stack, I love building clean, performant web applications.
+              Motivated Junior Developer with hands-on experience in Python and core web
+              development technologies. B.Tech student specialising in AI & Data Science at
+              NBKRIST, Nellore. I have a solid understanding of software lifecycles through
+              Git & GitHub, and a versatile programming background including Java and C.
               Beyond coding, I'm an active sports player — representing my college at JNTUA
-              South Zone tournaments in both Table Tennis and Kho-Kho.
+              South Zone tournaments in Table Tennis and Kho-Kho.
             </p>
 
             {/* Personal info */}
@@ -109,7 +111,7 @@ export default function About() {
             <div className="mt-8 glass p-5">
               <h4 className="font-bold text-white mb-3 text-sm">Hobbies & Interests</h4>
               <div className="flex flex-wrap gap-2">
-                {['Learning new tech', 'Reading tech blogs', 'Deep research', 'Table Tennis', 'Kho-Kho', 'Softball'].map((h) => (
+                {['Learning new tech', 'Reading tech blogs', 'Building AI & automation projects', 'Table Tennis', 'Kho-Kho', 'Playing Games'].map((h) => (
                   <span key={h}
                     className="px-3 py-1 text-xs rounded-full border border-primary/25 bg-primary/8 text-primary">
                     {h}

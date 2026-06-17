@@ -50,12 +50,28 @@ function Modal({ cert, onClose, onPrev, onNext }) {
         {/* Content */}
         <div className="px-6">
           {/* Certificate image / placeholder */}
-          <div className={`w-full h-44 rounded-xl bg-gradient-to-br ${cert.gradient} flex flex-col items-center justify-center mb-6 relative overflow-hidden`}>
-            <div className="absolute inset-0 animate-shimmer" />
-            <span className="text-6xl mb-2 relative z-10">{cert.icon}</span>
-            <span className="text-dark/70 text-xs font-bold relative z-10 uppercase tracking-widest">
-              Certificate
-            </span>
+          <div className={`w-full rounded-xl mb-6 overflow-hidden relative ${cert.imageUrl ? '' : `bg-gradient-to-br ${cert.gradient} h-44`}`}>
+            {cert.imageUrl ? (
+              <img
+                src={cert.imageUrl}
+                alt={cert.title}
+                className="w-full object-contain max-h-72 rounded-xl bg-white"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                  e.currentTarget.nextElementSibling.style.display = 'flex';
+                }}
+              />
+            ) : null}
+            {/* Fallback gradient (always rendered, hidden when image loads) */}
+            <div
+              className={`w-full h-44 bg-gradient-to-br ${cert.gradient} flex flex-col items-center justify-center relative overflow-hidden ${cert.imageUrl ? 'hidden' : 'flex'}`}
+              id={`fallback-${cert.id}`}>
+              <div className="absolute inset-0 animate-shimmer" />
+              <span className="text-6xl mb-2 relative z-10">{cert.icon}</span>
+              <span className="text-dark/70 text-xs font-bold relative z-10 uppercase tracking-widest">
+                Certificate
+              </span>
+            </div>
           </div>
 
           {/* Badge */}

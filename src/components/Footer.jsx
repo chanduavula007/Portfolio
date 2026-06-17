@@ -15,7 +15,7 @@ export default function Footer() {
           <div>
             <div className="text-2xl font-extrabold gradient-text font-mono mb-3">&lt;AC /&gt;</div>
             <p className="text-slate-500 text-sm leading-relaxed">
-              Full Stack Developer specialising in MERN stack.
+              Junior Web Developer with hands-on experience in Python and the MERN stack.
               B.Tech AI & DS student at NBKRIST, Nellore.
             </p>
           </div>

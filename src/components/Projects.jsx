@@ -1,6 +1,6 @@
 import React from 'react';
 import { ExternalLink, Github, ArrowUpRight } from 'lucide-react';
-import { projects } from '../data';
+import { projects, personal } from '../data';
 
 export default function Projects() {
   return (
@@ -66,7 +66,7 @@ export default function Projects() {
 
         {/* GitHub CTA */}
         <div className="text-center mt-12">
-          <a href="https://github.com/chanduavula007" target="_blank" rel="noopener noreferrer"
+          <a href={personal.github} target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 border border-primary/30 text-primary rounded-xl hover:bg-primary/10 transition-all text-sm font-medium">
             <Github className="w-4 h-4" />
             View all projects on GitHub

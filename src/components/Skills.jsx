@@ -2,18 +2,20 @@ import React, { useState, useEffect, useRef } from 'react';
 import { skillCategories } from '../data';
 
 const techStack = [
-  { name: 'MongoDB',    icon: '🍃', color: '#47A248' },
-  { name: 'Express.js', icon: '⚡', color: '#eee' },
+  { name: 'Python',     icon: '🐍', color: '#3776AB' },
+  { name: 'JavaScript', icon: '📜', color: '#F7DF1E' },
+  { name: 'Java',       icon: '☕', color: '#ED8B00' },
+  { name: 'C',          icon: '🔷', color: '#A8B9CC' },
   { name: 'React.js',   icon: '⚛️', color: '#61DAFB' },
   { name: 'Node.js',    icon: '🟢', color: '#339933' },
-  { name: 'JavaScript', icon: '📜', color: '#F7DF1E' },
+  { name: 'Express.js', icon: '⚡', color: '#eee' },
+  { name: 'MongoDB',    icon: '🍃', color: '#47A248' },
   { name: 'HTML5',      icon: '🌐', color: '#E34F26' },
   { name: 'CSS3',       icon: '🎨', color: '#1572B6' },
   { name: 'Tailwind',   icon: '💨', color: '#06B6D4' },
   { name: 'Git',        icon: '📦', color: '#F05032' },
-  { name: 'Docker',     icon: '🐳', color: '#2496ED' },
-  { name: 'MySQL',      icon: '🗃️', color: '#4479A1' },
   { name: 'Power BI',   icon: '📊', color: '#F2C811' },
+  { name: 'VS Code',    icon: '🖥️', color: '#007ACC' },
 ];
 
 function Bar({ name, level, animate }) {
@@ -99,10 +101,10 @@ export default function Skills() {
           {/* Highlight cards */}
           <div className="grid grid-cols-2 gap-4">
             {[
-              { icon: '🎨', title: 'Frontend',     desc: 'React, HTML5, CSS3, Tailwind',    color: 'from-primary/20 to-primary/5' },
-              { icon: '⚙️', title: 'Backend',      desc: 'Node.js, Express, REST APIs',     color: 'from-emerald-500/20 to-emerald-500/5' },
-              { icon: '🗄️', title: 'Database',     desc: 'MongoDB, MySQL, SQLite',           color: 'from-gold/20 to-gold/5' },
-              { icon: '🛠️', title: 'DevTools',     desc: 'Git, Docker, VS Code, Power BI',  color: 'from-purple-500/20 to-purple-500/5' },
+              { icon: '🐍', title: 'Programming',  desc: 'Python, JavaScript, Java, C',       color: 'from-primary/20 to-primary/5' },
+              { icon: '🎨', title: 'Frontend',     desc: 'React, HTML5, CSS3, Tailwind',       color: 'from-emerald-500/20 to-emerald-500/5' },
+              { icon: '⚙️', title: 'Backend & DB', desc: 'Node.js, Express, MongoDB, MySQL',   color: 'from-gold/20 to-gold/5' },
+              { icon: '🛠️', title: 'Tools',        desc: 'Git, GitHub, VS Code, Power BI, Kiro', color: 'from-purple-500/20 to-purple-500/5' },
             ].map((card) => (
               <div key={card.title}
                 className={`glass p-5 bg-gradient-to-br ${card.color} glow-hover`}>

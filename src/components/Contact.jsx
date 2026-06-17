@@ -22,10 +22,11 @@ export default function Contact() {
   };
 
   const info = [
-    { icon: <Mail className="w-4 h-4" />,    label: 'Email',    val: personal.email,    href: `mailto:${personal.email}` },
-    { icon: <MapPin className="w-4 h-4" />,  label: 'Location', val: personal.location, href: null },
-    { icon: <Github className="w-4 h-4" />,  label: 'GitHub',   val: 'chanduavula007',  href: personal.github },
-    { icon: <Linkedin className="w-4 h-4" />,label: 'LinkedIn', val: 'avulachandu',     href: personal.linkedin },
+    { icon: <Mail className="w-4 h-4" />,    label: 'Email',    val: personal.email,          href: `mailto:${personal.email}` },
+    { icon: <Phone className="w-4 h-4" />,   label: 'Phone',    val: personal.phone,           href: `tel:${personal.phone}` },
+    { icon: <MapPin className="w-4 h-4" />,  label: 'Location', val: personal.location,        href: null },
+    { icon: <Github className="w-4 h-4" />,  label: 'GitHub',   val: 'github.com/dashboard',   href: personal.github },
+    { icon: <Linkedin className="w-4 h-4" />,label: 'LinkedIn', val: 'in.linkedin.com/in/chandu-avula', href: personal.linkedin },
   ];
 
   return (
