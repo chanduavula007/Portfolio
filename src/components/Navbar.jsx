@@ -26,7 +26,7 @@ export default function Navbar({ activeSection }) {
         {/* Logo */}
         <button onClick={() => go('home')}
           className="text-xl font-extrabold tracking-tight gradient-text font-mono">
-          &lt;AC /&gt;
+          Avula Chandu
         </button>
 
         {/* Desktop links */}
