@@ -301,7 +301,7 @@ export const certifications = [
     icon: '🏃',
     gradient: 'from-purple-500 to-violet-600',
     verifyUrl: '#',
-    imageUrl: '/certs/cert-12-khokho-nbkrist.jpg',
+    imageUrl: null,
     tags: ['Kho-Kho', 'JNTUA IUT', 'AI & DS'],
     category: 'Sports',
     type: 'participation',
