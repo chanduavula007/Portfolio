@@ -109,11 +109,10 @@ function Modal({ cert, onClose, onPrev, onNext }) {
   );
 }
 
-export default function Certifications({ active }) {
+export default function Certifications() {
   const [activeCategory, setActiveCategory] = useState('All');
-  const [selected, setSelected]             = useState(null);   // index in filtered list
+  const [selected, setSelected]             = useState(null);
 
-  if (!active) return null;
 
   const filtered = activeCategory === 'All'
     ? certifications

@@ -15,10 +15,9 @@ body {
   overflow: hidden;
 }
 
-/* Sections — only active one is shown, controlled by React */
+/* Sections */
 section {
-  min-height: 100vh;
-  overflow-y: auto;
+  min-height: 100%;
 }
 
 /* Scrollbar */

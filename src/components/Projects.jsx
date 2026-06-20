@@ -2,8 +2,7 @@ import React from 'react';
 import { ExternalLink, Github, ArrowUpRight } from 'lucide-react';
 import { projects, personal } from '../data';
 
-export default function Projects({ active }) {
-  if (!active) return null;
+export default function Projects() {
   return (
     <section id="projects" className="min-h-screen flex items-center py-20 px-5">
       <div className="max-w-6xl mx-auto w-full">

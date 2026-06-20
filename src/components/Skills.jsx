@@ -33,15 +33,13 @@ function Bar({ name, level, animate }) {
   );
 }
 
-export default function Skills({ active }) {
+export default function Skills() {
   const [activeTab, setActiveTab] = useState(0);
   const [animate, setAnimate]     = useState(false);
 
   useEffect(() => {
-    if (active) setAnimate(true);
-  }, [active]);
-
-  if (!active) return null;
+    setAnimate(true);
+  }, []);
 
   return (
     <section id="skills"

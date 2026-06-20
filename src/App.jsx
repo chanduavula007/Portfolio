@@ -17,14 +17,46 @@ export default function App() {
       <Navbar activeSection={activeSection} setActiveSection={setActiveSection} />
       <SlideIndicator activeSection={activeSection} setActiveSection={setActiveSection} />
 
-      <div className="h-screen overflow-hidden">
-        <Hero        active={activeSection === 'home'}           setActiveSection={setActiveSection} />
-        <About       active={activeSection === 'about'}          />
-        <Skills      active={activeSection === 'skills'}         />
-        <Projects    active={activeSection === 'projects'}       />
-        <Certifications active={activeSection === 'certifications'} />
-        <Contact     active={activeSection === 'contact'}        />
-        <Footer      active={activeSection === 'contact'}        setActiveSection={setActiveSection} />
+      {/* Each panel fills the screen and scrolls its own content */}
+      <div className="h-screen overflow-hidden pt-16">
+
+        {activeSection === 'home' && (
+          <div className="h-full overflow-y-auto">
+            <Hero setActiveSection={setActiveSection} />
+          </div>
+        )}
+
+        {activeSection === 'about' && (
+          <div className="h-full overflow-y-auto">
+            <About />
+          </div>
+        )}
+
+        {activeSection === 'skills' && (
+          <div className="h-full overflow-y-auto">
+            <Skills />
+          </div>
+        )}
+
+        {activeSection === 'projects' && (
+          <div className="h-full overflow-y-auto">
+            <Projects />
+          </div>
+        )}
+
+        {activeSection === 'certifications' && (
+          <div className="h-full overflow-y-auto">
+            <Certifications />
+          </div>
+        )}
+
+        {activeSection === 'contact' && (
+          <div className="h-full overflow-y-auto">
+            <Contact />
+            <Footer setActiveSection={setActiveSection} />
+          </div>
+        )}
+
       </div>
     </div>
   );

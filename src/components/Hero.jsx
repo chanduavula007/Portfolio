@@ -9,7 +9,7 @@ const roles = [
   'AI & DS Student',
 ];
 
-export default function Hero({ active, setActiveSection }) {
+export default function Hero({ setActiveSection }) {
   const [roleIdx,   setRoleIdx]   = useState(0);
   const [displayed, setDisplayed] = useState('');
   const [typing,    setTyping]    = useState(true);
@@ -34,11 +34,8 @@ export default function Hero({ active, setActiveSection }) {
     return () => clearTimeout(t);
   }, [displayed, typing, roleIdx]);
 
-  if (!active) return null;
-
   return (
-    <section id="home"
-      className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section id="home"      className="relative h-screen flex items-center justify-center overflow-hidden">
 
       {/* Background grid */}
       <div className="absolute inset-0 opacity-10"

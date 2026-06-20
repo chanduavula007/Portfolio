@@ -2,9 +2,7 @@ import React from 'react';
 import { Github, Linkedin, Mail, Heart } from 'lucide-react';
 import { personal, sections } from '../data';
 
-export default function Footer({ active, setActiveSection }) {
-  if (!active) return null;
-
+export default function Footer({ setActiveSection }) {
   return (
     <footer className="border-t border-primary/10 bg-surface/80 py-12 px-5">
       <div className="max-w-6xl mx-auto">
