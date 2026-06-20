@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { Mail, MapPin, Github, Linkedin, Send, CheckCircle, Phone } from 'lucide-react';
 import { personal } from '../data';
 
-export default function Contact() {
+export default function Contact({ active }) {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [sent, setSent] = useState(false);
+
+  if (!active) return null;
 
   const handleChange = (e) =>
     setForm((p) => ({ ...p, [e.target.name]: e.target.value }));

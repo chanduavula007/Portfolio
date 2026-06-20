@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { skillCategories } from '../data';
 
 const techStack = [
@@ -33,22 +33,18 @@ function Bar({ name, level, animate }) {
   );
 }
 
-export default function Skills() {
-  const [active, setActive]   = useState(0);
-  const [animate, setAnimate] = useState(false);
-  const ref = useRef(null);
+export default function Skills({ active }) {
+  const [activeTab, setActiveTab] = useState(0);
+  const [animate, setAnimate]     = useState(false);
 
   useEffect(() => {
-    const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) setAnimate(true); },
-      { threshold: 0.3 }
-    );
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
+    if (active) setAnimate(true);
+  }, [active]);
+
+  if (!active) return null;
 
   return (
-    <section id="skills" ref={ref}
+    <section id="skills"
       className="min-h-screen flex items-center py-20 px-5 bg-surface/40">
       <div className="max-w-6xl mx-auto w-full">
 
@@ -77,9 +73,9 @@ export default function Skills() {
           <div>
             <div className="flex flex-wrap gap-2 mb-6">
               {skillCategories.map((cat, i) => (
-                <button key={i} onClick={() => setActive(i)}
+                <button key={i} onClick={() => setActiveTab(i)}
                   className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all ${
-                    active === i
+                    activeTab === i
                       ? 'bg-primary text-dark glow'
                       : 'border border-primary/20 text-slate-400 hover:border-primary/50 hover:text-white'
                   }`}>
@@ -90,9 +86,9 @@ export default function Skills() {
 
             <div className="glass p-7">
               <h3 className="text-base font-bold gradient-text mb-5">
-                {skillCategories[active].icon} {skillCategories[active].title} Skills
+                {skillCategories[activeTab].icon} {skillCategories[activeTab].title} Skills
               </h3>
-              {skillCategories[active].skills.map((s) => (
+              {skillCategories[activeTab].skills.map((s) => (
                 <Bar key={s.name} {...s} animate={animate} />
               ))}
             </div>

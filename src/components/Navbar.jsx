@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { sections } from '../data';
 
-export default function Navbar({ activeSection }) {
+export default function Navbar({ activeSection, setActiveSection }) {
   const [open, setOpen]         = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -13,7 +13,7 @@ export default function Navbar({ activeSection }) {
   }, []);
 
   const go = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    setActiveSection(id);
     setOpen(false);
   };
 

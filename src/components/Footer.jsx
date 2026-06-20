@@ -2,9 +2,8 @@ import React from 'react';
 import { Github, Linkedin, Mail, Heart } from 'lucide-react';
 import { personal, sections } from '../data';
 
-export default function Footer() {
-  const go = (id) =>
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+export default function Footer({ active, setActiveSection }) {
+  if (!active) return null;
 
   return (
     <footer className="border-t border-primary/10 bg-surface/80 py-12 px-5">
@@ -13,7 +12,7 @@ export default function Footer() {
 
           {/* Brand */}
           <div>
-            <div className="text-2xl font-extrabold gradient-text font-mono mb-3">&lt;AC /&gt;</div>
+            <div className="text-2xl font-extrabold gradient-text font-mono mb-3">Avula Chandu</div>
             <p className="text-slate-500 text-sm leading-relaxed">
               Junior Web Developer with hands-on experience in Python and the MERN stack.
               B.Tech AI & DS student at NBKRIST, Nellore.
@@ -25,7 +24,7 @@ export default function Footer() {
             <h4 className="text-white font-bold mb-4 text-sm">Quick Links</h4>
             <div className="grid grid-cols-2 gap-2">
               {sections.map(({ id, label }) => (
-                <button key={id} onClick={() => go(id)}
+                <button key={id} onClick={() => setActiveSection && setActiveSection(id)}
                   className="text-slate-500 hover:text-primary text-sm text-left transition-colors">
                   {label}
                 </button>

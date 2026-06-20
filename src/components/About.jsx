@@ -15,7 +15,8 @@ const timeline = [
   { year: '2023–27', title: 'B.Tech — AI & DS (8.06 CGPA)', sub: 'NBKR Institute of Technology, Vidyanagar',  icon: '🎓' },
 ];
 
-export default function About() {
+export default function About({ active }) {
+  if (!active) return null;
   return (
     <section id="about" className="min-h-screen flex items-center py-20 px-5">
       <div className="max-w-6xl mx-auto w-full">

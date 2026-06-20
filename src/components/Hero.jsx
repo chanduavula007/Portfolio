@@ -9,7 +9,7 @@ const roles = [
   'AI & DS Student',
 ];
 
-export default function Hero() {
+export default function Hero({ active, setActiveSection }) {
   const [roleIdx,   setRoleIdx]   = useState(0);
   const [displayed, setDisplayed] = useState('');
   const [typing,    setTyping]    = useState(true);
@@ -34,9 +34,11 @@ export default function Hero() {
     return () => clearTimeout(t);
   }, [displayed, typing, roleIdx]);
 
+  if (!active) return null;
+
   return (
     <section id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      className="relative h-screen flex items-center justify-center overflow-hidden">
 
       {/* Background grid */}
       <div className="absolute inset-0 opacity-10"
@@ -62,7 +64,7 @@ export default function Hero() {
         {/* Name */}
         <h1 className="text-5xl sm:text-7xl font-extrabold mb-5 leading-tight tracking-tight">
           Hi, I'm{' '}
-          <span className="gradient-text">{personal.name}</span>
+          <span className="gradient-text">CHANDU AVULA</span>
         </h1>
 
         {/* Typewriter */}
@@ -83,12 +85,12 @@ export default function Hero() {
         {/* CTAs */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           <button
-            onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => setActiveSection('projects')}
             className="px-8 py-3 bg-primary text-dark font-bold rounded-xl hover:bg-primary-dark transition-all glow hover:scale-105 text-sm">
             View My Work
           </button>
           <button
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => setActiveSection('contact')}
             className="px-8 py-3 border border-primary/40 text-primary font-bold rounded-xl hover:bg-primary/10 transition-all hover:scale-105 text-sm">
             Get In Touch
           </button>
@@ -97,9 +99,9 @@ export default function Hero() {
         {/* Social icons */}
         <div className="flex justify-center gap-4">
           {[
-            { icon: <Github className="w-5 h-5" />,   href: personal.github,              label: 'GitHub' },
-            { icon: <Linkedin className="w-5 h-5" />, href: personal.linkedin,            label: 'LinkedIn' },
-            { icon: <Mail className="w-5 h-5" />,     href: `mailto:${personal.email}`,   label: 'Email' },
+            { icon: <Github className="w-5 h-5" />,   href: personal.github,            label: 'GitHub' },
+            { icon: <Linkedin className="w-5 h-5" />, href: personal.linkedin,          label: 'LinkedIn' },
+            { icon: <Mail className="w-5 h-5" />,     href: `mailto:${personal.email}`, label: 'Email' },
           ].map(({ icon, href, label }) => (
             <a key={label} href={href} target="_blank" rel="noopener noreferrer"
               aria-label={label}
@@ -109,11 +111,11 @@ export default function Hero() {
           ))}
         </div>
 
-        {/* Scroll hint */}
+        {/* Down arrow → go to About */}
         <button
-          onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+          onClick={() => setActiveSection('about')}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-primary/40 hover:text-primary transition-colors"
-          aria-label="Scroll to About section">
+          aria-label="Go to About section">
           <ArrowDown className="w-6 h-6" />
         </button>
       </div>
